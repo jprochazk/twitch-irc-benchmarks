@@ -41,6 +41,13 @@ Go benchmarks use the built-in benchmarking tool.
 $ cd go && go test -bench=.
 ```
 
+### Node
+
+Node benchmarks use benchmark.js
+```
+cd node && npm i && node bench.js
+```
+
 ## Results
 
 ### x86
