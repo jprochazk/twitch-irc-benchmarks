@@ -55,9 +55,9 @@ Benchmarks were run in WSL2 Ubuntu 22.04 on an AMD Ryzen 7950X
 
 | library                                                                                                               | language                                    | time to parse 1000 lines |
 | --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- | ------------------------ |
-| [twitch](https://github.com/jprochazk/twitch-rs/tree/3f04961e70a2a4838af535540bb5cbb7b4319e44)                        | rustc 1.72.0-nightly (101fa903b 2023-06-04) | 593.24 µs ± 0.91 µs      |
-| [twitch](https://github.com/jprochazk/twitch-rs/tree/3f04961e70a2a4838af535540bb5cbb7b4319e44) (`-F simd`)            | rustc 1.72.0-nightly (101fa903b 2023-06-04) | 357.75 µs ± 1.07 µs      |
-| [twitch](https://github.com/jprochazk/twitch-rs/tree/3f04961e70a2a4838af535540bb5cbb7b4319e44) (`-F simd` + cheating) | rustc 1.72.0-nightly (101fa903b 2023-06-04) | 195.51 µs ± 0.14 µs      |
+| [twitch](https://github.com/jprochazk/twitch-rs/tree/f58e4cd5576a174724d371013651f569ad3a973d)                        | rustc 1.72.0-nightly (101fa903b 2023-06-04) | 457.41 µs ± 0.51 µs      |
+| [twitch](https://github.com/jprochazk/twitch-rs/tree/f58e4cd5576a174724d371013651f569ad3a973d) (`-F simd`)            | rustc 1.72.0-nightly (101fa903b 2023-06-04) | 225.43 µs ± 0.13 µs      |
+| [twitch](https://github.com/jprochazk/twitch-rs/tree/f58e4cd5576a174724d371013651f569ad3a973d) (`-F simd` + cheating) | rustc 1.72.0-nightly (101fa903b 2023-06-04) | 165.70 µs ± 0.07 µs      |
 | [twitch-irc](https://github.com/robotty/twitch-irc-rs/tree/v5.0.0)                                                    | rustc 1.72.0-nightly (101fa903b 2023-06-04) | 2.2193 ms ± 2.58 µs      |
 | [irc_rust](https://github.com/MoBlaa/irc_rust/tree/4ae66fb3176b1d46cec6764f1a76aa6e9673d08b)                          | rustc 1.72.0-nightly (101fa903b 2023-06-04) | 969.86 µs ± 0.83 µs      |
 | [justgrep](https://github.com/Mm2PL/justgrep/tree/v0.0.6)                                                             | Go 1.20                                     | 1.395126 ms              |
@@ -74,9 +74,9 @@ Benchmarks were run with macOS 13.4 running on an M2 MacBook Air 16 GB
 
 | library                                                                                                               | language                                    | time to parse 1000 lines |
 | --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- | ------------------------ |
-| [twitch](https://github.com/jprochazk/twitch-rs/tree/3f04961e70a2a4838af535540bb5cbb7b4319e44)                        | rustc 1.72.0-nightly (101fa903b 2023-06-04) | 1.0960 ms ± 3.16 µs      |
-| [twitch](https://github.com/jprochazk/twitch-rs/tree/3f04961e70a2a4838af535540bb5cbb7b4319e44) (`-F simd`)            | rustc 1.72.0-nightly (101fa903b 2023-06-04) | 604.93 µs ± 0.50 µs      |
-| [twitch](https://github.com/jprochazk/twitch-rs/tree/3f04961e70a2a4838af535540bb5cbb7b4319e44) (`-F simd` + cheating) | rustc 1.72.0-nightly (101fa903b 2023-06-04) | 422.62 µs ± 1.00 µs      |
+| [twitch](https://github.com/jprochazk/twitch-rs/tree/f58e4cd5576a174724d371013651f569ad3a973d)                        | rustc 1.72.0-nightly (101fa903b 2023-06-04) | 713.89 µs ± 0.38 µs      |
+| [twitch](https://github.com/jprochazk/twitch-rs/tree/f58e4cd5576a174724d371013651f569ad3a973d) (`-F simd`)            | rustc 1.72.0-nightly (101fa903b 2023-06-04) | 513.56 µs ± 1.33 µs      |
+| [twitch](https://github.com/jprochazk/twitch-rs/tree/f58e4cd5576a174724d371013651f569ad3a973d) (`-F simd` + cheating) | rustc 1.72.0-nightly (101fa903b 2023-06-04) | 404.40 µs ± 0.92 µs      |
 | [twitch-irc](https://github.com/robotty/twitch-irc-rs/tree/v5.0.0)                                                    | rustc 1.72.0-nightly (101fa903b 2023-06-04) | 3.2780 ms ± 5.72 µs      |
 | [irc_rust](https://github.com/MoBlaa/irc_rust/tree/4ae66fb3176b1d46cec6764f1a76aa6e9673d08b)                          | rustc 1.72.0-nightly (101fa903b 2023-06-04) | 1.6897 ms ± 9.81 µs      |
 | [justgrep](https://github.com/Mm2PL/justgrep/tree/v0.0.6)                                                             | Go 1.20                                     | 1.707313 ms              |

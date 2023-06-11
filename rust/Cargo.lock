@@ -1000,7 +1000,7 @@ dependencies = [
 [[package]]
 name = "twitch"
 version = "0.1.0"
-source = "git+https://github.com/jprochazk/twitch-rs.git#464365ce7c106358eece7d712f4daaa8eabf486f"
+source = "git+https://github.com/jprochazk/twitch-rs.git#f58e4cd5576a174724d371013651f569ad3a973d"
 
 [[package]]
 name = "twitch-irc"
