@@ -11,7 +11,7 @@ import (
 )
 
 func readInput() ([]string, error) {
-	file, err := os.Open("data.txt")
+	file, err := os.Open("../data.txt")
 	if err != nil {
 		return nil, err
 	}

@@ -3,7 +3,7 @@ use std::str::FromStr;
 use criterion::{black_box, criterion_group, criterion_main, BenchmarkId, Criterion};
 
 fn read_input() -> Vec<String> {
-    let data = include_str!("data.txt");
+    let data = include_str!("../../data.txt");
 
     data.lines()
         .take(1000)
