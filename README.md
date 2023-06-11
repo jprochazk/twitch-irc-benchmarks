@@ -1,4 +1,4 @@
-# Benchmarks
+# twitch-irc-benchmarks
 
 The general outline of the benchmark:
 - The first 1000 lines of `data.txt` are read and prepared during setup
@@ -14,11 +14,8 @@ Rust benchmarks use [criterion](https://github.com/bheisler/criterion.rs).
 $ cd rust && cargo bench
 ```
 
-`twitch-rs` also has an optional SIMD implementation using SSE2 (only available on x86). It may be enabled by specifying the `-F simd` flag on cargo commands:
-
-```
-$ cd rust && cargo bench -F simd
-```
+`twitch-rs` uses the `simd` feature, which enables the parser implementation which uses SIMD instructions.
+It can be disabled by removing the `simd` feature from the `Cargo.toml`.
 
 `twitch-rs` also has support for a tag whitelist. Any tag which is not whitelisted will be ignored.
 This can improve performance by up to 40%. In the results below, the version of the benchmark using
@@ -32,6 +29,8 @@ C# benchmarks use [BenchmarkDotNet](https://github.com/dotnet/BenchmarkDotNet).
 ```
 $ cd dotnet && DOTNET_TieredPGO=1 dotnet run -c Release
 ```
+
+Benchmarks run with both JIT and AOT where possible.
 
 ### Go
 
