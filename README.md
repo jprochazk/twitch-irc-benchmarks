@@ -83,8 +83,8 @@ Benchmarks were run with macOS 13.4 running on an M2 MacBook Air 16 GB
 | [go-twitch-irc](https://github.com/jprochazk/go-twitch-irc/tree/v4.2.0)                                               | Go 1.20                                     | 4.714300 ms              |
 | *[minitwitch](https://github.com/jprochazk/minitwitch-bench/tree/a5d2c7b7f5717ff00e6a2f29fd1c0099ff02a59d)            | .NET 8.0.100-preview.4.23260.5              | 1.387 ms ± 0.0013 ms     |
 | *[minitwitch](https://github.com/jprochazk/minitwitch-bench/tree/a5d2c7b7f5717ff00e6a2f29fd1c0099ff02a59d) (+ AOT)    | .NET 8.0.100-preview.4.23260.5              | 1.263 ms ± 0.0119 ms     |
-| [dank-twitch-irc](https://github.com/KararTY/dank-twitch-irc/tree/v6.0.0)                                             | Node.js v20.3.0                             | TBD                      |
-| [irc-message](https://github.com/osslate/irc-message/tree/v3.0.1)                                                     | Node.js v20.3.0                             | TBD                      |
-| [deno/twitch_irc](https://github.com/jprochazk/twitch_irc/tree/0.11.2)                                                | Node.js v20.3.0                             | TBD                      |
+| [dank-twitch-irc](https://github.com/KararTY/dank-twitch-irc/tree/v6.0.0)                                             | Node.js v20.3.0                             | 5.391 ms                 |
+| [irc-message](https://github.com/osslate/irc-message/tree/v3.0.1)                                                     | Node.js v20.3.0                             | 3.648 ms                 |
+| [deno/twitch_irc](https://github.com/jprochazk/twitch_irc/tree/0.11.2)                                                | Node.js v20.3.0                             | 5.607 ms                 |
 
 NOTE: `minitwitch` was not run with `DOTNET_TieredPGO=1`, because the benchmark would segfault each time I attempted to run it.
