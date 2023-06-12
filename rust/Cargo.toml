@@ -9,10 +9,13 @@ edition = "2021"
 criterion = "0.5.1"
 irc-rust = "0.4.0"
 mimalloc = { version = "0.1.37", default-features = false }
-twitch = { git = "https://github.com/jprochazk/twitch-rs.git", version = "0.1.0", features = [
-  "simd",
-] }
 twitch-irc = "5.0.0"
+
+[dependencies.twitch]
+git = "https://github.com/jprochazk/twitch-rs.git"
+version = "0.1.0"
+features = ["simd"]
+
 
 [[bench]]
 name = "parse"
