@@ -1,6 +1,9 @@
+use criterion::{black_box, criterion_group, criterion_main, BenchmarkId, Criterion};
+use mimalloc::MiMalloc;
 use std::str::FromStr;
 
-use criterion::{black_box, criterion_group, criterion_main, BenchmarkId, Criterion};
+#[global_allocator]
+static GLOBAL: MiMalloc = MiMalloc;
 
 fn read_input() -> Vec<String> {
     let data = include_str!("../../data.txt");
