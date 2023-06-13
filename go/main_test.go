@@ -8,6 +8,7 @@ import (
 
 	"github.com/Mm2PL/justgrep"
 	"github.com/jprochazk/go-twitch-irc/v4"
+	"github.com/rod41732/go-twitch-irc-parser/irc"
 )
 
 func readInput() ([]string, error) {
@@ -65,6 +66,14 @@ func BenchmarkParse(b *testing.B) {
 					b.FailNow()
 					return
 				}
+				_ = message
+			}
+		}
+	})
+	b.Run("go-twitch-irc-parser", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			for _, line := range input {
+				message := irc.NewIRCMessage(line)
 				_ = message
 			}
 		}
