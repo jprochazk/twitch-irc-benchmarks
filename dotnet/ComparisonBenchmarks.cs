@@ -28,12 +28,12 @@ public class ComparisonBenchmarks
         }
     }
 
-    /* [Benchmark]
+    [Benchmark, IterationCount(15), WarmupCount(5)]
     public void TwitchLibParse()
     {
         foreach (string item in stringLines)
         {
             TwitchLib.HandleIrcMessage(TwitchLib.ParseIrcMessage(item));
         }
-    } */
+    }
 }
