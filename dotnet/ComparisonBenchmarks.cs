@@ -15,7 +15,15 @@ public class ComparisonBenchmarks
     [GlobalSetup]
     public void AddData()
     {
-        stringLines = File.ReadLines("data.txt").Take(1000).ToArray();
+        try
+        {
+            stringLines = File.ReadLines("data.txt").Take(1000).ToArray();
+        }
+        catch (Exception e)
+        {
+            _ = e;
+            stringLines = File.ReadLines("../data.txt").Take(1000).ToArray();
+        }
         dataLines = stringLines.Select(Encoding.UTF8.GetBytes).ToArray();
     }
 
