@@ -45,6 +45,22 @@ Node benchmarks use benchmark.js
 cd node && npm i && node bench.js
 ```
 
+### C++
+
+C++ benchmarks use [`benchmark`](https://github.com/google/benchmark).
+Make sure you cloned the submodules and have Qt installed.
+
+```sh
+cd cpp
+cmake -S. -Bbuild -GNinja -DCMAKE_BUILD_TYPE=RelWithDebInfo
+cd build
+ninja
+# only on windows
+windeployqt --no-translations --no-opengl-sw --no-compiler-runtime --dir . ./bench.exe
+
+./bench --benchmark_time_unit=ms --benchmark_repetitions=25
+```
+
 ## Results
 
 Rows with `*` have a note in [#notes](#notes)

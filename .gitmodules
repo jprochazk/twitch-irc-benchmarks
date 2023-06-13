@@ -1,0 +1,10 @@
+[submodule "cpp/lib/libcommuni"]
+	path = cpp/lib/libcommuni
+	url = https://github.com/Chatterino/libcommuni.git
+	branch = chatterino-cmake
+[submodule "cpp/lib/benchmark"]
+	path = cpp/lib/benchmark
+	url = https://github.com/google/benchmark
+[submodule "cpp/lib/googletest"]
+	path = cpp/lib/googletest
+	url = https://github.com/google/googletest
