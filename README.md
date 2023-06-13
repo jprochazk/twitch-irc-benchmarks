@@ -47,6 +47,8 @@ cd node && npm i && node bench.js
 
 ## Results
 
+Rows with `*` have a note in [#notes](#notes)
+
 ### x86
 
 Benchmarks were run in WSL2 Ubuntu 22.04 on an AMD Ryzen 7950X
@@ -63,6 +65,7 @@ Benchmarks were run in WSL2 Ubuntu 22.04 on an AMD Ryzen 7950X
 | [rod41732/go-twitch-irc-parser](https://github.com/rod41732/go-twitch-irc-parser/tree/v0.0.3.1)                                 | Go 1.20                                     | 500.389 µs               |
 | [Foretack/minitwitch](https://github.com/jprochazk/minitwitch-bench/tree/a5d2c7b7f5717ff00e6a2f29fd1c0099ff02a59d)              | .NET 8.0.100-preview.4.23260.5              | 883.4 µs ± 4.78 µs       |
 | [Foretack/minitwitch](https://github.com/jprochazk/minitwitch-bench/tree/a5d2c7b7f5717ff00e6a2f29fd1c0099ff02a59d) (+ AOT)      | .NET 8.0.100-preview.4.23260.5              | 772.0 µs ± 5.27 µs       |
+| [^2] [TwitchLib](https://github.com/TwitchLib/TwitchLib)                                                                            | .NET 8.0.100-preview.4.23260.5              | 5.8284 s ± 1.823 s       |
 | [KararTY/dank-twitch-irc](https://github.com/KararTY/dank-twitch-irc/tree/v6.0.0)                                               | Node.js v20.3.0                             | 5.743 ms                 |
 | [osslate/irc-message](https://github.com/osslate/irc-message/tree/v3.0.1)                                                       | Node.js v20.3.0                             | 3.068 ms                 |
 | [jprochazk/twitch_irc](https://github.com/jprochazk/twitch_irc/tree/0.11.2)                                                     | Node.js v20.3.0                             | 5.855 ms                 |
@@ -81,10 +84,15 @@ Benchmarks were run with macOS 13.4 running on an M2 MacBook Air 16 GB
 | [Mm2PL/justgrep](https://github.com/Mm2PL/justgrep/tree/v0.0.6)                                                                 | Go 1.20                                     | 1.707313 ms              |
 | [gempir/go-twitch-irc](https://github.com/jprochazk/go-twitch-irc/tree/v4.2.0)                                                  | Go 1.20                                     | 4.714300 ms              |
 | [rod41732/go-twitch-irc-parser](https://github.com/rod41732/go-twitch-irc-parser/tree/v0.0.3.1)                                 | Go 1.20                                     | 628.474 µs               |
-| *[Foretack/minitwitch](https://github.com/jprochazk/minitwitch-bench/tree/a5d2c7b7f5717ff00e6a2f29fd1c0099ff02a59d)             | .NET 8.0.100-preview.4.23260.5              | 1.387 ms ± 0.0013 ms     |
-| *[Foretack/minitwitch](https://github.com/jprochazk/minitwitch-bench/tree/a5d2c7b7f5717ff00e6a2f29fd1c0099ff02a59d) (+ AOT)     | .NET 8.0.100-preview.4.23260.5              | 1.263 ms ± 0.0119 ms     |
+| [^1] [Foretack/minitwitch](https://github.com/jprochazk/minitwitch-bench/tree/a5d2c7b7f5717ff00e6a2f29fd1c0099ff02a59d)             | .NET 8.0.100-preview.4.23260.5              | 1.387 ms ± 0.0013 ms     |
+| [^1] [Foretack/minitwitch](https://github.com/jprochazk/minitwitch-bench/tree/a5d2c7b7f5717ff00e6a2f29fd1c0099ff02a59d) (+ AOT)     | .NET 8.0.100-preview.4.23260.5              | 1.263 ms ± 0.0119 ms     |
+| [^2] [TwitchLib](https://github.com/TwitchLib/TwitchLib)                                                                            | .NET 8.0.100-preview.4.23260.5              | 2.387 s ± 0.721 s        |
 | [KararTY/dank-twitch-irc](https://github.com/KararTY/dank-twitch-irc/tree/v6.0.0)                                               | Node.js v20.3.0                             | 5.391 ms                 |
 | [osslate/irc-message](https://github.com/osslate/irc-message/tree/v3.0.1)                                                       | Node.js v20.3.0                             | 3.648 ms                 |
 | [jprochazk/twitch_irc](https://github.com/jprochazk/twitch_irc/tree/0.11.2)                                                     | Node.js v20.3.0                             | 5.607 ms                 |
 
-NOTE: `minitwitch` was not run with `DOTNET_TieredPGO=1`, because the benchmark would segfault each time I attempted to run it.
+
+[^1]: `minitwitch` was not run with `DOTNET_TieredPGO=1` on arm64, because the benchmark segfaults.
+
+[^2]: `TwitchLib` being measured in _seconds_ is not a mistake.
+
