@@ -8,6 +8,8 @@ The general outline of the benchmark:
 
 ### Rust
 
+[Install Rust](https://www.rust-lang.org/tools/install) (rustup is *highly* recommended)
+
 Rust benchmarks use [criterion](https://github.com/bheisler/criterion.rs).
 
 ```
@@ -22,6 +24,8 @@ In the results below, the version of the benchmark using this feature is labelle
 
 ### C# .NET
 
+[Install .NET](https://learn.microsoft.com/en-us/dotnet/core/install/) (on unix, I recommend [dotnet-install scripts](https://dotnet.microsoft.com/en-us/download/dotnet/scripts))
+
 C# benchmarks use [BenchmarkDotNet](https://github.com/dotnet/BenchmarkDotNet).
 
 ```
@@ -32,6 +36,8 @@ Benchmarks run with both JIT and AOT where possible.
 
 ### Go
 
+[Install Go](https://go.dev/doc/install) (on unix, I recommend [golang-tools-install-script](https://github.com/canha/golang-tools-install-script))
+
 Go benchmarks use the built-in benchmarking tool.
 
 ```
@@ -39,6 +45,8 @@ $ cd go && go test -bench=.
 ```
 
 ### Node
+
+[Install Node](https://nodejs.org/en/download) (on unix, I recommend [nvm](https://github.com/nvm-sh/nvm))
 
 Node benchmarks use benchmark.js
 ```
