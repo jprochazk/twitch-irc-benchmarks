@@ -48,7 +48,8 @@ cd node && npm i && node bench.js
 ### C++
 
 C++ benchmarks use [`benchmark`](https://github.com/google/benchmark).
-Make sure you cloned the submodules and have Qt installed.
+Make sure you cloned the submodules.
+To build the benchmark, you need to have a C++ compiler, [CMake](https://cmake.org/), and [Qt 6](https://doc.qt.io/qt-6/get-and-install-qt.html) installed. On Windows you might need to tell CMake about your Qt installation using `-DCMAKE_PREFIX_PATH=<path-to-qt>/msvc2019_64`.
 
 ```sh
 cd cpp
