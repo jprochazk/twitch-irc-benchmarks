@@ -24,12 +24,12 @@ In the results below, the version of the benchmark using this feature is labelle
 
 ### C# .NET
 
-[Install .NET](https://learn.microsoft.com/en-us/dotnet/core/install/) (on unix, I recommend [dotnet-install scripts](https://dotnet.microsoft.com/en-us/download/dotnet/scripts))
+[Install .NET](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) (on unix, I recommend [dotnet-install scripts](https://dotnet.microsoft.com/en-us/download/dotnet/scripts))
 
 C# benchmarks use [BenchmarkDotNet](https://github.com/dotnet/BenchmarkDotNet).
 
 ```
-$ cd dotnet && DOTNET_TieredPGO=1 dotnet run -c Release
+$ cd dotnet/src && DOTNET_TieredPGO=1 dotnet run -c Release
 ```
 
 Benchmarks run with both JIT and AOT where possible.
