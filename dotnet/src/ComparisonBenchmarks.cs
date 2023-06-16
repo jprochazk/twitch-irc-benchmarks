@@ -46,7 +46,7 @@ public class ComparisonBenchmarks
         }
     }
 
-    [Benchmark, IterationCount(15), WarmupCount(5)]
+    [Benchmark, IterationCount(5), WarmupCount(5)]
     public void TwitchLibParse()
     {
         foreach (var line in utf16Lines)
