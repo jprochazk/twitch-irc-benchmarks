@@ -1,0 +1,3 @@
+[submodule "dotnet/deps/feetlicker"]
+	path = dotnet/deps/feetlicker
+	url = https://github.com/neon-sunset/feetlicker
