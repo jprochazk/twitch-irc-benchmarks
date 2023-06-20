@@ -10,7 +10,7 @@ namespace libs_comparison;
 [SimpleJob, SimpleJob(RuntimeMoniker.NativeAot80)]
 public class ComparisonBenchmarks
 {
-    private U8String[] dataLines = null!;
+    private U8String[] utf8Lines = null!;
     private string[] utf16Lines = null!;
 
     [GlobalSetup]
@@ -25,13 +25,13 @@ public class ComparisonBenchmarks
             _ = e;
             utf16Lines = File.ReadLines("../../data.txt").Take(1000).ToArray();
         }
-        dataLines = utf16Lines.Select(line => line.ToU8String()).ToArray();
+        utf8Lines = utf16Lines.Select(line => line.ToU8String()).ToArray();
     }
 
     [Benchmark]
     public void MiniTwitchParse()
     {
-        foreach (var line in dataLines)
+        foreach (var line in utf8Lines)
         {
             MiniTwitch.Process(line);
         }
@@ -40,18 +40,18 @@ public class ComparisonBenchmarks
     [Benchmark]
     public void FeetlickerParse()
     {
-        foreach (var line in dataLines)
+        foreach (var line in utf8Lines)
         {
             _ = Message.Parse(line);
         }
     }
 
-    [Benchmark, IterationCount(5), WarmupCount(5)]
+    [Benchmark]
     public void TwitchLibParse()
     {
         foreach (var line in utf16Lines)
         {
-            TwitchLib.HandleIrcMessage(TwitchLib.ParseIrcMessage(line));
+            _ = TwitchLib.ParseIrcMessage(line);
         }
     }
 }
