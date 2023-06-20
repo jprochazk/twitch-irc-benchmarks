@@ -76,8 +76,8 @@ Benchmarks were run in WSL2 Ubuntu 22.04 on an AMD Ryzen 7950X
 | [gempir/go-twitch-irc](https://github.com/jprochazk/go-twitch-irc/tree/v4.2.0)                                                  | Go 1.20                                     | 3.75188 ms               |
 | [KararTY/dank-twitch-irc](https://github.com/KararTY/dank-twitch-irc/tree/v6.0.0)                                               | Node.js v20.3.0                             | 5.743 ms                 |
 | [jprochazk/twitch_irc](https://github.com/jprochazk/twitch_irc/tree/0.11.2)                                                     | Node.js v20.3.0                             | 5.855 ms                 |
-| [^1] [TwitchLib](https://github.com/TwitchLib/TwitchLib) (+ AOT)                                                                | .NET 8.0.100-preview.5.23303.2              | 5.5631 s ± 1.823 s       |
-| [^1] [TwitchLib](https://github.com/TwitchLib/TwitchLib)                                                                        | .NET 8.0.100-preview.5.23303.2              | 5.8284 s ± 1.823 s       |
+| [^1] [TwitchLib](https://github.com/TwitchLib/TwitchLib) (+ AOT)                                                                | .NET 8.0.100-preview.5.23303.2              | 844.8 µs ± 4.13 µs       |
+| [^1] [TwitchLib](https://github.com/TwitchLib/TwitchLib)                                                                        | .NET 8.0.100-preview.5.23303.2              | 946.9 µs ± 2.83 µs       |
 
 ### arm64
 
@@ -104,5 +104,7 @@ Benchmarks were run with macOS 13.4 running on an M2 MacBook Air 16 GB
 | [^1] [TwitchLib](https://github.com/TwitchLib/TwitchLib)                                                                        | .NET 8.0.100-preview.5.23303.2              | 2.387 s ± 0.721 s        |
 
 
-[^1]: `TwitchLib` being measured in _seconds_ is not a mistake.
+[^1]: `TwitchLib` was previously at least three orders of magnitude slower than anything else,
+      and it is important to note that it is still extremely slow in practice, because the
+      [message handler method causes the GC to choke and die](https://github.com/jprochazk/twitch-irc-benchmarks/pull/12)
 
