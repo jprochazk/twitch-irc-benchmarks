@@ -3,6 +3,8 @@ using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Numerics;
+using System.Runtime.Intrinsics.X86;
 
 namespace libs_comparison;
 public static class MiniTwitch
@@ -217,7 +219,32 @@ public static class MiniTwitch
         }
     }
 
-    public static int Sum(this ReadOnlySpan<byte> source)
+    public static unsafe int Sum(this ReadOnlySpan<byte> source)
+    {
+        if (!Avx2.IsSupported || source.Length < Vector<byte>.Count
+            || Vector.IsHardwareAccelerated)
+            return source.OldSum();
+        var vRes = Vector256<byte>.Zero;
+        int inc = Vector<byte>.Count;
+        fixed (byte* bf = source)
+        {
+            for (int i = 0; i < source.Length; i += inc)
+            {
+                Vector256<byte> vec = Avx.LoadVector256(bf + i);
+                vRes = Avx2.Add(vRes, vec);
+            }
+        }
+
+        int sum = 0;
+        for (int i = 0; i < inc; i++)
+        {
+            sum += vRes.GetElement(i);
+        }
+
+        return sum;
+    }
+
+    public static int OldSum(this ReadOnlySpan<byte> source)
     {
         int sum = 0;
         foreach (byte b in source)
