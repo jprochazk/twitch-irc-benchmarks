@@ -12,6 +12,7 @@
   "dependencies": {
     "@jprochazk/twitch_irc": "^0.11.2",
     "@kararty/dank-twitch-irc": "^6.0.0",
+    "@twurple/chat": "^6.2.1",
     "benchmark": "^2.1.4",
     "irc-message": "^3.0.1"
   }

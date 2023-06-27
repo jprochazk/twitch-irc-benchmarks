@@ -3,6 +3,7 @@ import Benchmark from "benchmark";
 import fs from "fs";
 import ircMsg from "irc-message";
 import * as TwitchIrc from "@jprochazk/twitch_irc";
+import { parseTwitchMessage } from "@twurple/chat";
 
 const data = fs.readFileSync("../data.txt", "utf-8");
 const lines = data.split("\n").slice(0, 1000);
@@ -35,6 +36,11 @@ suite
   .add("deno/twitch-irc", () => {
     for (let i = 0; i < lines.length; i++) {
       const ircMessage = TwitchIrc.Message.parse(lines[i]);
+    }
+  })
+  .add("twurple", () => {
+    for (let i = 0; i < lines.length; i++) {
+      const ircMessage = parseTwitchMessage(lines[i]);
     }
   })
   // TODO: make buffered irc-message benchmark
