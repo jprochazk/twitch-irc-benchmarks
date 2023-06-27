@@ -54,15 +54,17 @@ cd node && npm i && node bench.js
 ```
 ### Gleam
 
+To run the `gleam` benchmark, you need to install:
+- Erlang
+- Gleam
+- Elixir
+- Rebar3
+
 Gleam benchmarks use glychee.
-You need to run the benchmarks near the actual data.txt file, or else you will get assertion errors.
 
 ```
-gleam clean && \
-gleam build && \
-erl -pa ./build/dev/erlang/*/ebin -noshell -eval 'orange_irc@@main:run(benchmark)'
+$ cd gleam && gleam run
 ```
-
 
 ## Results
 
@@ -90,6 +92,7 @@ Benchmarks were run in WSL2 Ubuntu 22.04 on an AMD Ryzen 7950X
 | [KararTY/dank-twitch-irc](https://github.com/KararTY/dank-twitch-irc/tree/v6.0.0)                                               | Node.js v20.3.0                             | 5.743 ms                 |
 | [jprochazk/twitch_irc](https://github.com/jprochazk/twitch_irc/tree/0.11.2)                                                     | Node.js v20.3.0                             | 5.855 ms                 |
 | [twurple/twurple](https://github.com/twurple/twurple/tree/v6.2.1)                                                               | Node.js v20.3.0                             | 6.105 ms                 |
+| [^2] treuks/orange_tmi                                                                                                          | gleam 0.29 / erlang v12.2.1                 | 64.412 ms                |
 
 ### arm64
 
@@ -120,3 +123,21 @@ Benchmarks were run with macOS 13.4 running on an M2 MacBook Air 16 GB
       and it is important to note that it is still extremely slow in practice, because the
       [message handler method causes the GC to choke and die](https://github.com/jprochazk/twitch-irc-benchmarks/pull/12)
 
+[^2]: Source of `orange_tmi` is included in the repository.
+
+### License
+
+Licensed under either of
+
+- Apache License, Version 2.0
+  ([LICENSE-APACHE](LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
+- MIT license
+  ([LICENSE-MIT](LICENSE-MIT) or http://opensource.org/licenses/MIT)
+
+at your option.
+
+### Contribution
+
+Unless you explicitly state otherwise, any contribution intentionally submitted
+for inclusion in the work by you, as defined in the Apache-2.0 license, shall be
+dual licensed as above, without any additional terms or conditions.

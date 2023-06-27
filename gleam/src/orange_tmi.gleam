@@ -5,6 +5,7 @@ import gleam/option.{None, Option, Some}
 import gleam/list
 import gleam/result
 import gleam/int
+import glychee/benchmark
 
 pub type UserTypeData {
   Normal
@@ -74,11 +75,24 @@ pub type Privmsg {
 }
 
 pub fn main() {
-  let assert Ok(file_content) = file.read("data.txt")
-  let lines =
-    string.split(file_content, "\n")
-    |> list.take(1000)
-  list.map(lines, parse_irc)
+  benchmark.run(
+    [
+      benchmark.Function(
+        label: "orange_tmi.parse_irc",
+        callable: fn(test_data) { fn() { list.map(test_data, parse_irc) } },
+      ),
+    ],
+    [
+      benchmark.Data(
+        label: "First 1000 lines",
+        data: {
+          let assert Ok(file_content) = file.read("data.txt")
+          string.split(file_content, "\n")
+          |> list.take(1000)
+        },
+      ),
+    ],
+  )
 }
 
 pub fn parse_irc(line: String) {
