@@ -78,6 +78,7 @@ Benchmarks were run in WSL2 Ubuntu 22.04 on an AMD Ryzen 7950X
 | [gempir/go-twitch-irc](https://github.com/jprochazk/go-twitch-irc/tree/v4.2.0)                                                  | Go 1.20                                     | 3.75188 ms               |
 | [KararTY/dank-twitch-irc](https://github.com/KararTY/dank-twitch-irc/tree/v6.0.0)                                               | Node.js v20.3.0                             | 5.743 ms                 |
 | [jprochazk/twitch_irc](https://github.com/jprochazk/twitch_irc/tree/0.11.2)                                                     | Node.js v20.3.0                             | 5.855 ms                 |
+| [twurple/twurple](https://github.com/twurple/twurple/tree/v6.2.1)                                                               | Node.js v20.3.0                             | 6.105 ms                 |
 
 ### arm64
 
@@ -102,7 +103,7 @@ Benchmarks were run with macOS 13.4 running on an M2 MacBook Air 16 GB
 | [gempir/go-twitch-irc](https://github.com/jprochazk/go-twitch-irc/tree/v4.2.0)                                                  | Go 1.20                                     | 4.714300 ms              |
 | [KararTY/dank-twitch-irc](https://github.com/KararTY/dank-twitch-irc/tree/v6.0.0)                                               | Node.js v20.3.0                             | 5.391 ms                 |
 | [jprochazk/twitch_irc](https://github.com/jprochazk/twitch_irc/tree/0.11.2)                                                     | Node.js v20.3.0                             | 5.607 ms                 |
-
+| [twurple/twurple](https://github.com/twurple/twurple/tree/v6.2.1)                                                               | Node.js v20.3.0                             | 6.887 ms                 |
 
 [^1]: `TwitchLib` was previously at least three orders of magnitude slower than anything else,
       and it is important to note that it is still extremely slow in practice, because the
