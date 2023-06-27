@@ -52,6 +52,17 @@ Node benchmarks use benchmark.js
 ```
 cd node && npm i && node bench.js
 ```
+### Gleam
+
+Gleam benchmarks use glychee.
+You need to run the benchmarks near the actual data.txt file, or else you will get assertion errors.
+
+```
+gleam clean && \
+gleam build && \
+erl -pa ./build/dev/erlang/*/ebin -noshell -eval 'orange_irc@@main:run(benchmark)'
+```
+
 
 ## Results
 
