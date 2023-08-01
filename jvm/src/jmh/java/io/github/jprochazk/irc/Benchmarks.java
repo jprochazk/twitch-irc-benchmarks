@@ -1,5 +1,6 @@
 package io.github.jprochazk.irc;
 
+import com.gikk.twirk.types.twitchMessage.TwitchMessageBuilder;
 import com.github.twitch4j.chat.util.MessageParser;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
@@ -42,6 +43,15 @@ public class Benchmarks {
         final int n = count;
         for (int i = 0; i < n; i++) {
             bh.consume(MessageParser.parse(messages[i], emptyMap(), emptyMap(), emptyList()));
+        }
+    }
+
+    @Benchmark
+    public void testTwirk(Blackhole bh) {
+        TwitchMessageBuilder parser = TwitchMessageBuilder.getDefault();
+        final int n = count;
+        for (int i = 0; i < n; i++) {
+            bh.consume(parser.build(messages[i]));
         }
     }
 

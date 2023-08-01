@@ -4,6 +4,7 @@ plugins {
 
 repositories {
     mavenCentral()
+    maven { setUrl("https://jitpack.io") }
 }
 
 jmh {
@@ -12,4 +13,5 @@ jmh {
 
 dependencies {
     jmh("com.github.twitch4j:twitch4j:1.16.0")
+    jmh("com.github.gikkman:Java-Twirk:0.7.1")
 }
