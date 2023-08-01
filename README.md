@@ -66,6 +66,16 @@ Gleam benchmarks use glychee.
 $ cd gleam && gleam run
 ```
 
+### Java
+
+[Install JDK](https://adoptium.net/temurin/releases/?version=20) (on unix, I recommend [Temurin packages](https://adoptium.net/installation/linux/))
+
+JVM benchmarks use [Java Microbenchmark Harness (JMH)](https://openjdk.org/projects/code-tools/jmh).
+
+```
+$ cd jvm && ./gradlew jmh
+```
+
 ## Results
 
 ### x86
