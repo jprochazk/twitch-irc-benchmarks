@@ -11,10 +11,11 @@ import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.infra.Blackhole;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Stream;
 
 import static java.util.Collections.emptyList;
 import static java.util.Collections.emptyMap;
@@ -31,8 +32,8 @@ public class Benchmarks {
 
     @Setup
     public void setUp() throws IOException {
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/data.txt")))) {
-            this.messages = reader.lines().limit(count).toArray(String[]::new);
+        try (Stream<String> lines = Files.lines(Paths.get("../data.txt"))) {
+            this.messages = lines.limit(count).toArray(String[]::new);
         }
     }
 
