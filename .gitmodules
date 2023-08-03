@@ -1,3 +1,0 @@
-[submodule "dotnet/deps/warpskimmer"]
-	path = dotnet/deps/warpskimmer
-	url = https://github.com/neon-sunset/warpskimmer
