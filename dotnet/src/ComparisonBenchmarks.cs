@@ -1,6 +1,6 @@
 ﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Jobs;
-using Feetlicker;
+using Warpskimmer;
 using forsen;
 using U8Primitives;
 
@@ -38,7 +38,7 @@ public class ComparisonBenchmarks
     }
 
     [Benchmark]
-    public void FeetlickerParse()
+    public void WarpskimmerParse()
     {
         foreach (var line in utf8Lines)
         {
