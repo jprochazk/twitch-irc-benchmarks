@@ -38,7 +38,7 @@ public class ComparisonBenchmarks
     }
 
     [Benchmark]
-    public void FeetlickerParse()
+    public void WarpskimmerParse()
     {
         foreach (var line in utf8Lines)
         {

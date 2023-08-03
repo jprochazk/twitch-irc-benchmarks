@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="BenchmarkDotNet" Version="0.13.5" />
-    <ProjectReference Include="..\deps\feetlicker\src\Feetlicker.csproj" />
+    <ProjectReference Include="..\deps\warpskimmer\src\Feetlicker.csproj" />
   </ItemGroup>
 
   <ItemGroup>
