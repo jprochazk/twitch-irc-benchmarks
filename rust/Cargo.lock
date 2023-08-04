@@ -411,7 +411,8 @@ dependencies = [
  "criterion",
  "irc-rust",
  "mimalloc",
- "twitch",
+ "twitch 0.1.0",
+ "twitch 0.2.0",
  "twitch-irc",
 ]
 
@@ -1020,7 +1021,12 @@ dependencies = [
 [[package]]
 name = "twitch"
 version = "0.1.0"
-source = "git+https://github.com/jprochazk/twitch-rs.git#13fdd348ca0a25bd7b3b2a11c74733e6c63eacad"
+source = "git+https://github.com/jprochazk/twitch-rs.git?rev=6dc09ef53d11a8ccf69c4542e8422c073d2dd6c7#6dc09ef53d11a8ccf69c4542e8422c073d2dd6c7"
+
+[[package]]
+name = "twitch"
+version = "0.2.0"
+source = "git+https://github.com/jprochazk/twitch-rs.git?rev=81c9abc568c74fdea9cb3c1dbed797d51e1c8956#81c9abc568c74fdea9cb3c1dbed797d51e1c8956"
 
 [[package]]
 name = "twitch-irc"
