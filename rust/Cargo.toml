@@ -11,11 +11,19 @@ irc-rust = "0.4.0"
 mimalloc = { version = "0.1.37", default-features = false }
 twitch-irc = "5.0.0"
 
-[dependencies.twitch]
+[dependencies.twitch_simd]
+package = "twitch"
 git = "https://github.com/jprochazk/twitch-rs.git"
-version = "0.1.0"
+rev = "6dc09ef53d11a8ccf69c4542e8422c073d2dd6c7"
 features = ["simd"]
+default-features = false
 
+[dependencies.twitch_no_simd]
+package = "twitch"
+git = "https://github.com/jprochazk/twitch-rs.git"
+rev = "81c9abc568c74fdea9cb3c1dbed797d51e1c8956"
+features = []
+default-features = false
 
 [[bench]]
 name = "parse"

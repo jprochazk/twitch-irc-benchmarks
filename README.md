@@ -74,18 +74,20 @@ Benchmarks were run in WSL2 Ubuntu 22.04 on an AMD Ryzen 7950X
 
 | library                                                                                                                         | language                                    | time to parse 1000 lines |
 | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- | ------------------------ |
-| [jprochazk/twitch](https://github.com/jprochazk/twitch-rs/tree/13fdd348ca0a25bd7b3b2a11c74733e6c63eacad) (`-F simd`)            | rustc 1.72.0-nightly (101fa903b 2023-06-04) | 156.21 µs ± 0.14 µs      |
-| [jprochazk/twitch](https://github.com/jprochazk/twitch-rs/tree/13fdd348ca0a25bd7b3b2a11c74733e6c63eacad)                        | rustc 1.72.0-nightly (101fa903b 2023-06-04) | 376.32 µs ± 0.82 µs      |
-| [neon-sunset/warpskimmer](https://github.com/neon-sunset/warpskimmer/tree/1cc232e263b3746b08400e7eb6f52af1549a0a98) (+ AOT)     | .NET 8.0.100-preview.5.23303.2              | 381.3 µs ± 0.29 µs       |
-| [neon-sunset/warpskimmer](https://github.com/neon-sunset/warpskimmer/tree/1cc232e263b3746b08400e7eb6f52af1549a0a98)             | .NET 8.0.100-preview.5.23303.2              | 436.3 µs ± 0.31 µs       |
+| [jprochazk/twitch](https://github.com/jprochazk/twitch-rs/tree/6dc09ef53d11a8ccf69c4542e8422c073d2dd6c7) (`-F simd`) + cheating | rustc 1.73.0-nightly (8131b9774 2023-08-02) | 136.43 µs ± 0.14 µs      |
+| [jprochazk/twitch](https://github.com/jprochazk/twitch-rs/tree/6dc09ef53d11a8ccf69c4542e8422c073d2dd6c7) (`-F simd`)            | rustc 1.73.0-nightly (8131b9774 2023-08-02) | 157.69 µs ± 0.14 µs      |
+| [neon-sunset/warpskimmer](https://github.com/neon-sunset/warpskimmer/tree/1cc232e263b3746b08400e7eb6f52af1549a0a98) (+ AOT)     | .NET 8.0.100-preview.5.23303.2              | 210.8 µs ± 0.29 µs       |
+| [neon-sunset/warpskimmer](https://github.com/neon-sunset/warpskimmer/tree/1cc232e263b3746b08400e7eb6f52af1549a0a98)             | .NET 8.0.100-preview.5.23303.2              | 216.0 µs ± 0.31 µs       |
+| [jprochazk/twitch](https://github.com/jprochazk/twitch-rs/tree/81c9abc568c74fdea9cb3c1dbed797d51e1c8956) + cheating             | rustc 1.73.0-nightly (8131b9774 2023-08-02) | 283.37 µs ± 0.82 µs      |
+| [jprochazk/twitch](https://github.com/jprochazk/twitch-rs/tree/81c9abc568c74fdea9cb3c1dbed797d51e1c8956)                        | rustc 1.73.0-nightly (8131b9774 2023-08-02) | 376.32 µs ± 0.82 µs      |
 | [rod41732/go-twitch-irc-parser](https://github.com/rod41732/go-twitch-irc-parser/tree/v0.0.3.1)                                 | Go 1.20                                     | 500.389 µs               |
 | [Foretack/minitwitch](https://github.com/jprochazk/minitwitch-bench/tree/a5d2c7b7f5717ff00e6a2f29fd1c0099ff02a59d) (+ AOT)      | .NET 8.0.100-preview.5.23303.2              | 772.0 µs ± 5.27 µs       |
 | [^1] [TwitchLib](https://github.com/TwitchLib/TwitchLib) (+ AOT)                                                                | .NET 8.0.100-preview.5.23303.2              | 844.8 µs ± 4.13 µs       |
 | [Foretack/minitwitch](https://github.com/jprochazk/minitwitch-bench/tree/a5d2c7b7f5717ff00e6a2f29fd1c0099ff02a59d)              | .NET 8.0.100-preview.5.23303.2              | 883.4 µs ± 4.78 µs       |
-| [MoBlaa/irc_rust](https://github.com/MoBlaa/irc_rust/tree/4ae66fb3176b1d46cec6764f1a76aa6e9673d08b)                             | rustc 1.72.0-nightly (101fa903b 2023-06-04) | 935.84 µs ± 2.17 µs      |
+| [MoBlaa/irc_rust](https://github.com/MoBlaa/irc_rust/tree/4ae66fb3176b1d46cec6764f1a76aa6e9673d08b)                             | rustc 1.73.0-nightly (8131b9774 2023-08-02) | 935.84 µs ± 2.17 µs      |
 | [^1] [TwitchLib](https://github.com/TwitchLib/TwitchLib)                                                                        | .NET 8.0.100-preview.5.23303.2              | 946.9 µs ± 2.83 µs       |
 | [Mm2PL/justgrep](https://github.com/Mm2PL/justgrep/tree/v0.0.6)                                                                 | Go 1.20                                     | 1.395126 ms              |
-| [robotty/twitch-irc](https://github.com/robotty/twitch-irc-rs/tree/v5.0.0)                                                      | rustc 1.72.0-nightly (101fa903b 2023-06-04) | 1.7731 ms ± 11.52 µs     |
+| [robotty/twitch-irc](https://github.com/robotty/twitch-irc-rs/tree/v5.0.0)                                                      | rustc 1.73.0-nightly (8131b9774 2023-08-02) | 1.7731 ms ± 11.52 µs     |
 | [osslate/irc-message](https://github.com/osslate/irc-message/tree/v3.0.1)                                                       | Node.js v20.3.0                             | 3.068 ms                 |
 | [gempir/go-twitch-irc](https://github.com/jprochazk/go-twitch-irc/tree/v4.2.0)                                                  | Go 1.20                                     | 3.75188 ms               |
 | [KararTY/dank-twitch-irc](https://github.com/KararTY/dank-twitch-irc/tree/v6.0.0)                                               | Node.js v20.3.0                             | 5.743 ms                 |
@@ -99,8 +101,10 @@ Benchmarks were run with macOS 13.4 running on an M2 MacBook Air 16 GB
 
 | library                                                                                                                         | language                                    | time to parse 1000 lines |
 | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- | ------------------------ |
-| [jprochazk/twitch](https://github.com/jprochazk/twitch-rs/tree/13fdd348ca0a25bd7b3b2a11c74733e6c63eacad) (`-F simd`)            | rustc 1.72.0-nightly (101fa903b 2023-06-04) | 287.73 µs ± 0.08 µs      |
-| [jprochazk/twitch](https://github.com/jprochazk/twitch-rs/tree/13fdd348ca0a25bd7b3b2a11c74733e6c63eacad)                        | rustc 1.72.0-nightly (101fa903b 2023-06-04) | 345.59 µs ± 0.12 µs      |
+| [jprochazk/twitch](https://github.com/jprochazk/twitch-rs/tree/6dc09ef53d11a8ccf69c4542e8422c073d2dd6c7) (`-F simd`) + cheating | rustc 1.73.0-nightly (8131b9774 2023-08-02) | 282.13 µs ± 0.08 µs      |
+| [jprochazk/twitch](https://github.com/jprochazk/twitch-rs/tree/6dc09ef53d11a8ccf69c4542e8422c073d2dd6c7) (`-F simd`)            | rustc 1.73.0-nightly (8131b9774 2023-08-02) | 287.73 µs ± 0.06 µs      |
+| [jprochazk/twitch](https://github.com/jprochazk/twitch-rs/tree/81c9abc568c74fdea9cb3c1dbed797d51e1c8956) + cheating             | rustc 1.73.0-nightly (8131b9774 2023-08-02) | 321.39 µs ± 0.12 µs      |
+| [jprochazk/twitch](https://github.com/jprochazk/twitch-rs/tree/81c9abc568c74fdea9cb3c1dbed797d51e1c8956)                        | rustc 1.73.0-nightly (8131b9774 2023-08-02) | 345.59 µs ± 0.42 µs      |
 | [neon-sunset/warpskimmer](https://github.com/neon-sunset/warpskimmer/tree/1cc232e263b3746b08400e7eb6f52af1549a0a98) (+ AOT)     | .NET 8.0.100-rc.1.23404.1                   | 295.5 µs ± 0.17 µs       |
 | [neon-sunset/warpskimmer](https://github.com/neon-sunset/warpskimmer/tree/1cc232e263b3746b08400e7eb6f52af1549a0a98)             | .NET 8.0.100-rc.1.23404.1                   | 325.5 µs ± 0.28 µs       |
 | [rod41732/go-twitch-irc-parser](https://github.com/rod41732/go-twitch-irc-parser/tree/v0.0.3.1)                                 | Go 1.20                                     | 628.474 µs               |
@@ -108,9 +112,9 @@ Benchmarks were run with macOS 13.4 running on an M2 MacBook Air 16 GB
 | [^1] [TwitchLib](https://github.com/TwitchLib/TwitchLib) (+ AOT)                                                                | .NET 8.0.100-preview.5.23303.2              | 1.083 ms ± 0.29 µs       |
 | [Foretack/minitwitch](https://github.com/jprochazk/minitwitch-bench/tree/a5d2c7b7f5717ff00e6a2f29fd1c0099ff02a59d) (+ AOT)      | .NET 8.0.100-preview.5.23303.2              | 1.263 ms ± 0.0119 ms     |
 | [Foretack/minitwitch](https://github.com/jprochazk/minitwitch-bench/tree/a5d2c7b7f5717ff00e6a2f29fd1c0099ff02a59d)              | .NET 8.0.100-preview.5.23303.2              | 1.387 ms ± 0.0013 ms     |
-| [MoBlaa/irc_rust](https://github.com/MoBlaa/irc_rust/tree/4ae66fb3176b1d46cec6764f1a76aa6e9673d08b)                             | rustc 1.72.0-nightly (101fa903b 2023-06-04) | 1.4808 ms ± 7.71 µs      |
+| [MoBlaa/irc_rust](https://github.com/MoBlaa/irc_rust/tree/4ae66fb3176b1d46cec6764f1a76aa6e9673d08b)                             | rustc 1.73.0-nightly (8131b9774 2023-08-02) | 1.4808 ms ± 7.71 µs      |
 | [Mm2PL/justgrep](https://github.com/Mm2PL/justgrep/tree/v0.0.6)                                                                 | Go 1.20                                     | 1.707313 ms              |
-| [robotty/twitch-irc](https://github.com/robotty/twitch-irc-rs/tree/v5.0.0)                                                      | rustc 1.72.0-nightly (101fa903b 2023-06-04) | 2.6460 ms ± 3.58 µs      |
+| [robotty/twitch-irc](https://github.com/robotty/twitch-irc-rs/tree/v5.0.0)                                                      | rustc 1.73.0-nightly (8131b9774 2023-08-02) | 2.6460 ms ± 3.58 µs      |
 | [osslate/irc-message](https://github.com/osslate/irc-message/tree/v3.0.1)                                                       | Node.js v20.3.0                             | 3.648 ms                 |
 | [gempir/go-twitch-irc](https://github.com/jprochazk/go-twitch-irc/tree/v4.2.0)                                                  | Go 1.20                                     | 4.714300 ms              |
 | [KararTY/dank-twitch-irc](https://github.com/KararTY/dank-twitch-irc/tree/v6.0.0)                                               | Node.js v20.3.0                             | 5.391 ms                 |

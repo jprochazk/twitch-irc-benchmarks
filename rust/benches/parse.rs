@@ -14,7 +14,45 @@ fn read_input() -> Vec<String> {
         .collect::<Vec<_>>()
 }
 
-fn twitch(c: &mut Criterion) {
+fn twitch_simd(c: &mut Criterion) {
+    let input = read_input();
+    c.bench_with_input(
+        BenchmarkId::new("twitch + simd", "data.txt (whitelist)"),
+        &input,
+        |b, lines| {
+            b.iter_with_setup(
+                || lines.clone(),
+                |lines| {
+                    for line in lines {
+                        black_box(
+                            twitch_simd::Message::parse_with_whitelist(
+                                line,
+                                twitch_simd::whitelist!(TmiSentTs, UserId),
+                            )
+                            .expect("failed to parse"),
+                        );
+                    }
+                },
+            );
+        },
+    );
+    c.bench_with_input(
+        BenchmarkId::new("twitch + simd", "data.txt (no whitelist)"),
+        &input,
+        |b, lines| {
+            b.iter_with_setup(
+                || lines.clone(),
+                |lines| {
+                    for line in lines {
+                        black_box(twitch_simd::Message::parse(line).expect("failed to parse"));
+                    }
+                },
+            );
+        },
+    );
+}
+
+fn twitch_no_simd(c: &mut Criterion) {
     let input = read_input();
     c.bench_with_input(
         BenchmarkId::new("twitch", "data.txt (whitelist)"),
@@ -25,9 +63,9 @@ fn twitch(c: &mut Criterion) {
                 |lines| {
                     for line in lines {
                         black_box(
-                            twitch::Message::parse_with_whitelist(
+                            twitch_no_simd::Message::parse_with_whitelist(
                                 line,
-                                twitch::whitelist!(TmiSentTs, UserId),
+                                twitch_no_simd::whitelist!(TmiSentTs, UserId),
                             )
                             .expect("failed to parse"),
                         );
@@ -44,7 +82,7 @@ fn twitch(c: &mut Criterion) {
                 || lines.clone(),
                 |lines| {
                     for line in lines {
-                        black_box(twitch::Message::parse(line).expect("failed to parse"));
+                        black_box(twitch_no_simd::Message::parse(line).expect("failed to parse"));
                     }
                 },
             );
@@ -89,5 +127,5 @@ fn irc_rust(c: &mut Criterion) {
     );
 }
 
-criterion_group!(benches, twitch, twitch_irc, irc_rust);
+criterion_group!(benches, twitch_simd, twitch_no_simd, twitch_irc, irc_rust);
 criterion_main!(benches);
