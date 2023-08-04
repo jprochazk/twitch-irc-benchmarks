@@ -1,6 +1,6 @@
 ﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Jobs;
-using Feetlicker;
+using Warpskimmer;
 using forsen;
 using U8Primitives;
 
