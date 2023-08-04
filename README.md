@@ -101,8 +101,8 @@ Benchmarks were run with macOS 13.4 running on an M2 MacBook Air 16 GB
 
 | library                                                                                                                         | language                                    | time to parse 1000 lines |
 | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- | ------------------------ |
-| [jprochazk/twitch](https://github.com/jprochazk/twitch-rs/tree/6dc09ef53d11a8ccf69c4542e8422c073d2dd6c7) (`-F simd`) + cheating | rustc 1.73.0-nightly (8131b9774 2023-08-02) | 282.13 µs ± 0.08 µs      |
-| [jprochazk/twitch](https://github.com/jprochazk/twitch-rs/tree/6dc09ef53d11a8ccf69c4542e8422c073d2dd6c7) (`-F simd`)            | rustc 1.73.0-nightly (8131b9774 2023-08-02) | 287.73 µs ± 0.06 µs      |
+| [jprochazk/twitch](https://github.com/jprochazk/twitch-rs/tree/6dc09ef53d11a8ccf69c4542e8422c073d2dd6c7) (`-F simd`) + cheating | rustc 1.73.0-nightly (8131b9774 2023-08-02) | 269.13 µs ± 0.08 µs      |
+| [jprochazk/twitch](https://github.com/jprochazk/twitch-rs/tree/6dc09ef53d11a8ccf69c4542e8422c073d2dd6c7) (`-F simd`)            | rustc 1.73.0-nightly (8131b9774 2023-08-02) | 272.73 µs ± 0.06 µs      |
 | [neon-sunset/warpskimmer](https://github.com/neon-sunset/warpskimmer/tree/1cc232e263b3746b08400e7eb6f52af1549a0a98)             | .NET 8.0.100-rc.1.23404.1                   | 295.5 µs ± 0.17 µs       |
 | [jprochazk/twitch](https://github.com/jprochazk/twitch-rs/tree/81c9abc568c74fdea9cb3c1dbed797d51e1c8956) + cheating             | rustc 1.73.0-nightly (8131b9774 2023-08-02) | 321.39 µs ± 0.12 µs      |
 | [neon-sunset/warpskimmer](https://github.com/neon-sunset/warpskimmer/tree/1cc232e263b3746b08400e7eb6f52af1549a0a98) (+ AOT)     | .NET 8.0.100-rc.1.23404.1                   | 325.5 µs ± 0.28 µs       |
