@@ -45,6 +45,7 @@ public class Benchmarks {
     }
 
     @Benchmark
+    @OutputTimeUnit(TimeUnit.MICROSECONDS)
     public void testTwitch4J(Blackhole bh) {
         final int n = count;
         for (int i = 0; i < n; i++) {
