@@ -1,0 +1,12 @@
+*.class
+*.jar
+hs_err_pid*
+bin/
+gen/
+build/
+out/
+.classpath
+.project
+.settings/
+local.properties
+.gradle/
