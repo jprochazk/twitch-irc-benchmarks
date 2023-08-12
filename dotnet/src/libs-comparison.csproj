@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="BenchmarkDotNet" Version="0.13.5" />
+    <PackageReference Include="TwitchLib.Client" Version="4.0.0-preview-5fea08f8a4a91a0c9e5d0ccb17c3143a6992ff3d" />
     <ProjectReference Include="..\deps\warpskimmer\src\Warpskimmer.csproj" />
   </ItemGroup>
 
