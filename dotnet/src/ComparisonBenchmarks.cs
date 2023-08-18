@@ -1,5 +1,4 @@
 ﻿using BenchmarkDotNet.Attributes;
-using BenchmarkDotNet.Jobs;
 using Warpskimmer;
 using U8Primitives;
 using TwitchLib.Client.Parsing;
@@ -7,7 +6,6 @@ using TwitchLib.Client.Parsing;
 namespace libs_comparison;
 
 [MemoryDiagnoser]
-[SimpleJob, SimpleJob(RuntimeMoniker.NativeAot80)]
 public class ComparisonBenchmarks
 {
     private U8String[] utf8Lines = null!;

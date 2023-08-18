@@ -1,3 +1,4 @@
+rm -rf output/
 mkdir output
 
 echo "\nRunning Rust..."
