@@ -12,6 +12,6 @@ jmh {
 }
 
 dependencies {
-    jmh("com.github.twitch4j:twitch4j:1.16.0")
+    jmh("com.github.twitch4j:twitch4j:1.17.0")
     jmh("com.github.gikkman:Java-Twirk:0.7.1")
 }
