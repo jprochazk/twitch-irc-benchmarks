@@ -34,7 +34,7 @@ CPU:    AMD Ryzen 7 5800X (16)
 | -------- | ----------------------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
 | Rust     | 186.88 µs ± 0.80 µs           | rustc 1.72.0 (5680fa18f 2023-08-23) | [jprochazk/twitch-rs](https://github.com/jprochazk/twitch-rs/tree/6c25b2f1bc5ad34b039bbb73c2bb2c0f599f88c4)               | Additionally parses tag keys to specific enum members |
 | C#       | 192.30 µs ± 0.78 µs           | dotnet 8.0.100-rc.2.23456.6         | [neon-sunset/warpskimmer](https://github.com/neon-sunset/warpskimmer/tree/4d8589d2f573b31e82527507f7f4d70210b2cb31)       |                                                       |
-| Go       | 732.53 µs (not qualified[^1]) | go1.20.6 linux/amd64              | [rod41732/go-twitch-irc-parser](https://github.com/rod41732/go-twitch-irc-parser/tree/v0.0.3.1)                             | See below                                             |
+| Go       | 732.53 µs (not qualified)[^1] | go1.20.6 linux/amd64              | [rod41732/go-twitch-irc-parser](https://github.com/rod41732/go-twitch-irc-parser/tree/v0.0.3.1)                             | See below                                             |
 | Java     | 776.88 µs ± 6.38 µs           | openjdk 19.0.2 2023-01-17           | [twitch4j/twitch4j](https://github.com/twitch4j/twitch4j/commit/33b50b76e42c3c17f9a5d91ac4f96594d223a5ec)                 |                                                       |
 | C#       | 777.20 µs ± 6.58 µs           | dotnet 8.0.100-rc.2.23456.6         | [TwitchLib/TwitchLib.Client](https://github.com/TwitchLib/TwitchLib.Client/tree/5fea08f8a4a91a0c9e5d0ccb17c3143a6992ff3d) |                                                       |
 | C#       | 1.158 ms ± 2.01 µs            | dotnet 8.0.100-rc.2.23456.6         | [Foretack/minitwitch](https://github.com/jprochazk/minitwitch-bench/tree/a5d2c7b7f5717ff00e6a2f29fd1c0099ff02a59d)        | Additionally parses emote sets, badges and more       |
@@ -48,7 +48,7 @@ CPU:    AMD Ryzen 7 5800X (16)
 | Node.js  | 7.832 ms                      | node v20.6.1                        | [jprochazk/twitch_irc](https://github.com/jprochazk/twitch_irc/tree/0.11.2)                                               |                                                       |
 | Node.js  | 8.084 ms                      | node v20.6.1                        | [twurple/twurple](https://github.com/twurple/twurple/tree/v6.2.1)                                                         |                                                       |
 
-[^1]: Because this version has been present in the initial data before Round 0, it is left as is. Otherwise, it does not parse command type and prefix elements (hostmask) does not qualify as a result.
+[^1]: This version has been present in the initial data before Round 0 and left as is as a reference. Otherwise, its result does not qualify because the implementation does not parse command type and prefix elements (hostmask).
 
 ### Rust
 
