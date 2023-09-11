@@ -1,6 +1,8 @@
 rm -rf output/
 mkdir output
 
+lines=1000
+
 echo "\nRunning Rust..."
 cd rust && cargo bench >> ../output/rust.txt && cd ..
 
@@ -8,7 +10,7 @@ echo "\nRunning .NET..."
 cd dotnet/src && dotnet run -c Release >> ../../output/dotnet.txt && cd ../..
 
 echo "\nRunning Java..."
-cd jvm && ./gradlew clean && ./gradlew jmh >> ../output/java.txt && cd ..
+cd jvm && ./gradlew jmhJar && ./gradlew --stop && java -jar build/libs/jvm-jmh.jar -p count=$lines -rf TEXT -rff ../output/java.txt && cd ..
 
 echo "\nRunning Go..."
 cd go && go test -bench=. >> ../output/go.txt && cd ..
