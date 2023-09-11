@@ -14,14 +14,14 @@ twitch-irc = "5.0.0"
 [dependencies.twitch_simd]
 package = "twitch"
 git = "https://github.com/jprochazk/twitch-rs.git"
-rev = "6dc09ef53d11a8ccf69c4542e8422c073d2dd6c7"
+rev = "6c25b2f1bc5ad34b039bbb73c2bb2c0f599f88c4"
 features = ["simd"]
 default-features = false
 
 [dependencies.twitch_no_simd]
 package = "twitch"
 git = "https://github.com/jprochazk/twitch-rs.git"
-rev = "81c9abc568c74fdea9cb3c1dbed797d51e1c8956"
+rev = "8182545bf149f2d607e030dd2ec64f105f63c624"
 features = []
 default-features = false
 

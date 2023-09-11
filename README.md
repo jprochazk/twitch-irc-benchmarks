@@ -6,6 +6,34 @@ The general outline of the benchmark:
 
 `data.txt` consists of roughly 200 thousand messages. The benchmarks only read the first 1000 lines from this file.
 
+## Round 0 Results
+
+### X86_64
+
+```
+Kernel: 5.15.90.1-microsoft-standard-WSL2
+OS:     Ubuntu 22.04.3 LTS on Windows 10 x86_64 
+CPU:    AMD Ryzen 7 5800X (16)
+```
+
+| Language | Time to 1K lines    | Version                             | Library                                                                                                                   | Notes                                                 |
+| -------- | ------------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| Rust     | 186.88 µs ± 0.80 µs | rustc 1.72.0 (5680fa18f 2023-08-23) | [jprochazk/twitch-rs](https://github.com/jprochazk/twitch-rs/tree/6c25b2f1bc5ad34b039bbb73c2bb2c0f599f88c4)               | Additionally parses tag keys to specific enum members |
+| C#       | 192.30 µs ± 0.78 µs | dotnet 8.0.100-rc.2.23456.6         | [neon-sunset/warpskimmer](https://github.com/neon-sunset/warpskimmer/tree/4d8589d2f573b31e82527507f7f4d70210b2cb31)       |                                                       |
+| Go       | 732.53 µs           | go1.20.6 linux/amd64                | [rod41732/go-twitch-irc-parser](https://github.com/rod41732/go-twitch-irc-parser/tree/v0.0.3.1)                           | Message prefix elements not parsed                    |
+| Java     | 776.88 µs ± 6.38 µs | openjdk 19.0.2 2023-01-17           | [twitch4j/twitch4j](https://github.com/twitch4j/twitch4j/commit/33b50b76e42c3c17f9a5d91ac4f96594d223a5ec)                 |                                                       |
+| C#       | 777.20 µs ± 6.58 µs | dotnet 8.0.100-rc.2.23456.6         | [TwitchLib/TwitchLib.Client](https://github.com/TwitchLib/TwitchLib.Client/tree/5fea08f8a4a91a0c9e5d0ccb17c3143a6992ff3d) |                                                       |
+| C#       | 1.158 ms ± 2.01 µs  | dotnet 8.0.100-rc.2.23456.6         | [Foretack/minitwitch](https://github.com/jprochazk/minitwitch-bench/tree/a5d2c7b7f5717ff00e6a2f29fd1c0099ff02a59d)        | Additionally parses emote sets, badges and more       |
+| Rust     | 1.193 ms ± 4 µs     | rustc 1.72.0 (5680fa18f 2023-08-23) | [MoBlaa/irc_rust](https://github.com/MoBlaa/irc_rust/tree/4ae66fb3176b1d46cec6764f1a76aa6e9673d08b)                       |                                                       |
+| Go       | 1.657 ms            | go1.20.6 linux/amd64                | [Mm2PL/justgrep](https://github.com/Mm2PL/justgrep/tree/v0.0.6)                                                           |                                                       |
+| Rust     | 2.293 ms ± 15 µs    | rustc 1.72.0 (5680fa18f 2023-08-23) | [robotty/twitch-irc](https://github.com/robotty/twitch-irc-rs/tree/v5.0.0)                                                |                                                       |
+| Java     | 2.506 ms ± 6.383 µs | openjdk 19.0.2 2023-01-17           | [Gikkman/Java-Twirk](https://github.com/Gikkman/Java-Twirk/tree/0.7.1)                                                    |                                                       |
+| Node.js  | 4.318 ms            | node v20.6.1                        | [osslate/irc-message](https://github.com/osslate/irc-message/tree/v3.0.1)                                                 |                                                       |
+| Go       | 5.218 ms            | go1.20.6 linux/amd64                | [gempir/go-twitch-irc](https://github.com/jprochazk/go-twitch-irc/tree/v4.2.0)                                            |                                                       |
+| Node.js  | 7.510 ms            | node v20.6.1                        | [KararTY/dank-twitch-irc](https://github.com/KararTY/dank-twitch-irc/tree/v6.0.0)                                         |                                                       |
+| Node.js  | 7.832 ms            | node v20.6.1                        | [jprochazk/twitch_irc](https://github.com/jprochazk/twitch_irc/tree/0.11.2)                                               |                                                       |
+| Node.js  | 8.084 ms            | node v20.6.1                        | [twurple/twurple](https://github.com/twurple/twurple/tree/v6.2.1)                                                         |                                                       |
+
 ### Rust
 
 [Install Rust](https://www.rust-lang.org/tools/install) (rustup is *highly* recommended)
@@ -75,67 +103,6 @@ JVM benchmarks use [Java Microbenchmark Harness (JMH)](https://openjdk.org/proje
 ```
 $ cd jvm && ./gradlew jmh
 ```
-
-## Results
-
-### x86
-
-Benchmarks were run in WSL2 Ubuntu 22.04 on an AMD Ryzen 7950X
-
-| library                                                                                                                         | language                                    | time to parse 1000 lines |
-| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- | ------------------------ |
-| [jprochazk/twitch](https://github.com/jprochazk/twitch-rs/tree/6dc09ef53d11a8ccf69c4542e8422c073d2dd6c7) (`-F simd`) + cheating | rustc 1.73.0-nightly (8131b9774 2023-08-02) | 136.43 µs ± 0.14 µs      |
-| [jprochazk/twitch](https://github.com/jprochazk/twitch-rs/tree/6dc09ef53d11a8ccf69c4542e8422c073d2dd6c7) (`-F simd`)            | rustc 1.73.0-nightly (8131b9774 2023-08-02) | 157.69 µs ± 0.14 µs      |
-| [neon-sunset/warpskimmer](https://github.com/neon-sunset/warpskimmer/tree/9d5bacd969e2013ebc682a98910e12c4bb3af9f5) (+ AOT)     | .NET 8.0.100-preview.5.23303.2              | 210.8 µs ± 0.29 µs       |
-| [neon-sunset/warpskimmer](https://github.com/neon-sunset/warpskimmer/tree/9d5bacd969e2013ebc682a98910e12c4bb3af9f5)             | .NET 8.0.100-preview.5.23303.2              | 216.0 µs ± 0.31 µs       |
-| [jprochazk/twitch](https://github.com/jprochazk/twitch-rs/tree/81c9abc568c74fdea9cb3c1dbed797d51e1c8956) + cheating             | rustc 1.73.0-nightly (8131b9774 2023-08-02) | 283.37 µs ± 0.82 µs      |
-| [jprochazk/twitch](https://github.com/jprochazk/twitch-rs/tree/81c9abc568c74fdea9cb3c1dbed797d51e1c8956)                        | rustc 1.73.0-nightly (8131b9774 2023-08-02) | 376.32 µs ± 0.82 µs      |
-| [rod41732/go-twitch-irc-parser](https://github.com/rod41732/go-twitch-irc-parser/tree/v0.0.3.1)                                 | Go 1.20                                     | 500.389 µs               |
-| [Foretack/minitwitch](https://github.com/jprochazk/minitwitch-bench/tree/a5d2c7b7f5717ff00e6a2f29fd1c0099ff02a59d) (+ AOT)      | .NET 8.0.100-preview.5.23303.2              | 772.0 µs ± 5.27 µs       |
-| [^1] [TwitchLib](https://github.com/TwitchLib/TwitchLib) (+ AOT)                                                                | .NET 8.0.100-preview.5.23303.2              | 844.8 µs ± 4.13 µs       |
-| [Foretack/minitwitch](https://github.com/jprochazk/minitwitch-bench/tree/a5d2c7b7f5717ff00e6a2f29fd1c0099ff02a59d)              | .NET 8.0.100-preview.5.23303.2              | 883.4 µs ± 4.78 µs       |
-| [MoBlaa/irc_rust](https://github.com/MoBlaa/irc_rust/tree/4ae66fb3176b1d46cec6764f1a76aa6e9673d08b)                             | rustc 1.73.0-nightly (8131b9774 2023-08-02) | 935.84 µs ± 2.17 µs      |
-| [^1] [TwitchLib](https://github.com/TwitchLib/TwitchLib)                                                                        | .NET 8.0.100-preview.5.23303.2              | 946.9 µs ± 2.83 µs       |
-| [Mm2PL/justgrep](https://github.com/Mm2PL/justgrep/tree/v0.0.6)                                                                 | Go 1.20                                     | 1.395126 ms              |
-| [robotty/twitch-irc](https://github.com/robotty/twitch-irc-rs/tree/v5.0.0)                                                      | rustc 1.73.0-nightly (8131b9774 2023-08-02) | 1.7731 ms ± 11.52 µs     |
-| [osslate/irc-message](https://github.com/osslate/irc-message/tree/v3.0.1)                                                       | Node.js v20.3.0                             | 3.068 ms                 |
-| [gempir/go-twitch-irc](https://github.com/jprochazk/go-twitch-irc/tree/v4.2.0)                                                  | Go 1.20                                     | 3.75188 ms               |
-| [KararTY/dank-twitch-irc](https://github.com/KararTY/dank-twitch-irc/tree/v6.0.0)                                               | Node.js v20.3.0                             | 5.743 ms                 |
-| [jprochazk/twitch_irc](https://github.com/jprochazk/twitch_irc/tree/0.11.2)                                                     | Node.js v20.3.0                             | 5.855 ms                 |
-| [twurple/twurple](https://github.com/twurple/twurple/tree/v6.2.1)                                                               | Node.js v20.3.0                             | 6.105 ms                 |
-| [^2] treuks/orange_tmi                                                                                                          | gleam 0.29 / erlang v12.2.1                 | 64.412 ms                |
-
-### arm64
-
-Benchmarks were run with macOS 13.4 running on an M2 MacBook Air 16 GB
-
-| library                                                                                                                         | language                                    | time to parse 1000 lines |
-| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- | ------------------------ |
-| [jprochazk/twitch](https://github.com/jprochazk/twitch-rs/tree/6dc09ef53d11a8ccf69c4542e8422c073d2dd6c7) (`-F simd`) + cheating | rustc 1.73.0-nightly (8131b9774 2023-08-02) | 269.13 µs ± 0.08 µs      |
-| [jprochazk/twitch](https://github.com/jprochazk/twitch-rs/tree/6dc09ef53d11a8ccf69c4542e8422c073d2dd6c7) (`-F simd`)            | rustc 1.73.0-nightly (8131b9774 2023-08-02) | 272.73 µs ± 0.06 µs      |
-| [neon-sunset/warpskimmer](https://github.com/neon-sunset/warpskimmer/tree/9d5bacd969e2013ebc682a98910e12c4bb3af9f5)             | .NET 8.0.100-rc.1.23404.1                   | 295.5 µs ± 0.17 µs       |
-| [jprochazk/twitch](https://github.com/jprochazk/twitch-rs/tree/81c9abc568c74fdea9cb3c1dbed797d51e1c8956) + cheating             | rustc 1.73.0-nightly (8131b9774 2023-08-02) | 321.39 µs ± 0.12 µs      |
-| [neon-sunset/warpskimmer](https://github.com/neon-sunset/warpskimmer/tree/9d5bacd969e2013ebc682a98910e12c4bb3af9f5) (+ AOT)     | .NET 8.0.100-rc.1.23404.1                   | 325.5 µs ± 0.28 µs       |
-| [jprochazk/twitch](https://github.com/jprochazk/twitch-rs/tree/81c9abc568c74fdea9cb3c1dbed797d51e1c8956)                        | rustc 1.73.0-nightly (8131b9774 2023-08-02) | 345.59 µs ± 0.42 µs      |
-| [rod41732/go-twitch-irc-parser](https://github.com/rod41732/go-twitch-irc-parser/tree/v0.0.3.1)                                 | Go 1.20                                     | 628.474 µs               |
-| [^1] [TwitchLib](https://github.com/TwitchLib/TwitchLib)                                                                        | .NET 8.0.100-preview.5.23303.2              | 858.5 ± 0.69 µs          |
-| [^1] [TwitchLib](https://github.com/TwitchLib/TwitchLib) (+ AOT)                                                                | .NET 8.0.100-preview.5.23303.2              | 1.083 ms ± 0.29 µs       |
-| [Foretack/minitwitch](https://github.com/jprochazk/minitwitch-bench/tree/a5d2c7b7f5717ff00e6a2f29fd1c0099ff02a59d) (+ AOT)      | .NET 8.0.100-preview.5.23303.2              | 1.263 ms ± 0.0119 ms     |
-| [Foretack/minitwitch](https://github.com/jprochazk/minitwitch-bench/tree/a5d2c7b7f5717ff00e6a2f29fd1c0099ff02a59d)              | .NET 8.0.100-preview.5.23303.2              | 1.387 ms ± 0.0013 ms     |
-| [MoBlaa/irc_rust](https://github.com/MoBlaa/irc_rust/tree/4ae66fb3176b1d46cec6764f1a76aa6e9673d08b)                             | rustc 1.73.0-nightly (8131b9774 2023-08-02) | 1.4808 ms ± 7.71 µs      |
-| [Mm2PL/justgrep](https://github.com/Mm2PL/justgrep/tree/v0.0.6)                                                                 | Go 1.20                                     | 1.707313 ms              |
-| [robotty/twitch-irc](https://github.com/robotty/twitch-irc-rs/tree/v5.0.0)                                                      | rustc 1.73.0-nightly (8131b9774 2023-08-02) | 2.6460 ms ± 3.58 µs      |
-| [osslate/irc-message](https://github.com/osslate/irc-message/tree/v3.0.1)                                                       | Node.js v20.3.0                             | 3.648 ms                 |
-| [gempir/go-twitch-irc](https://github.com/jprochazk/go-twitch-irc/tree/v4.2.0)                                                  | Go 1.20                                     | 4.714300 ms              |
-| [KararTY/dank-twitch-irc](https://github.com/KararTY/dank-twitch-irc/tree/v6.0.0)                                               | Node.js v20.3.0                             | 5.391 ms                 |
-| [jprochazk/twitch_irc](https://github.com/jprochazk/twitch_irc/tree/0.11.2)                                                     | Node.js v20.3.0                             | 5.607 ms                 |
-| [twurple/twurple](https://github.com/twurple/twurple/tree/v6.2.1)                                                               | Node.js v20.3.0                             | 6.887 ms                 |
-
-[^1]: `TwitchLib` was previously at least three orders of magnitude slower than anything else,
-      and it is important to note that it is still extremely slow in practice, because the
-      [message handler method causes the GC to choke and die](https://github.com/jprochazk/twitch-irc-benchmarks/pull/12)
-
-[^2]: Source of `orange_tmi` is included in the repository.
 
 ### License
 
