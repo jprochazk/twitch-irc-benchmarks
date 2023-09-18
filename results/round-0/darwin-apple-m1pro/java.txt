@@ -1,0 +1,118 @@
+
+> Configure project :
+Kotlin DSL property assignment is an incubating feature.
+
+> Task :compileJava NO-SOURCE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+> Task :compileTestJava NO-SOURCE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+> Task :compileJmhJava
+> Task :processJmhResources NO-SOURCE
+> Task :jmhClasses
+
+> Task :jmhRunBytecodeGenerator
+Processing 1 classes from /Users/[redacted]/Code/GitHub/twitch-irc-benchmarks/jvm/build/classes/java/jmh with "reflection" generator
+Writing out Java source to /Users/[redacted]/Code/GitHub/twitch-irc-benchmarks/jvm/build/jmh-generated-sources and resources to /Users/[redacted]/Code/GitHub/twitch-irc-benchmarks/jvm/build/jmh-generated-resources
+Processing 0 classes from /Users/[redacted]/Code/GitHub/twitch-irc-benchmarks/jvm/build/classes/java/test with "reflection" generator
+Writing out Java source to /Users/[redacted]/Code/GitHub/twitch-irc-benchmarks/jvm/build/jmh-generated-sources and resources to /Users/[redacted]/Code/GitHub/twitch-irc-benchmarks/jvm/build/jmh-generated-resources
+
+> Task :jmhCompileGeneratedClasses
+> Task :jmhJar
+
+> Task :jmh
+# JMH version: 1.36
+# VM version: JDK 20.0.2, OpenJDK 64-Bit Server VM, 20.0.2
+# VM invoker: /opt/homebrew/Cellar/openjdk/20.0.2/libexec/openjdk.jdk/Contents/Home/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/Users/[redacted]/Code/GitHub/twitch-irc-benchmarks/jvm/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: io.github.jprochazk.irc.Benchmarks.testTwirk
+# Parameters: (count = 1000)
+
+# Run progress: 0.00% complete, ETA 00:00:20
+# Fork: 1 of 1
+# Warmup Iteration   1: 2.654 ms/op
+# Warmup Iteration   2: 2.347 ms/op
+# Warmup Iteration   3: 2.347 ms/op
+# Warmup Iteration   4: 2.348 ms/op
+# Warmup Iteration   5: 2.343 ms/op
+Iteration   1: 2.347 ms/op
+Iteration   2: 2.342 ms/op
+Iteration   3: 2.347 ms/op
+Iteration   4: 2.345 ms/op
+Iteration   5: 2.343 ms/op
+
+
+Result "io.github.jprochazk.irc.Benchmarks.testTwirk":
+  2.345 ±(99.9%) 0.008 ms/op [Average]
+  (min, avg, max) = (2.342, 2.345, 2.347), stdev = 0.002
+  CI (99.9%): [2.337, 2.353] (assumes normal distribution)
+
+
+# JMH version: 1.36
+# VM version: JDK 20.0.2, OpenJDK 64-Bit Server VM, 20.0.2
+# VM invoker: /opt/homebrew/Cellar/openjdk/20.0.2/libexec/openjdk.jdk/Contents/Home/bin/java
+# VM options: -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/Users/[redacted]/Code/GitHub/twitch-irc-benchmarks/jvm/build/tmp/jmh -Duser.country=US -Duser.language=en -Duser.variant
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: io.github.jprochazk.irc.Benchmarks.testTwitch4J
+# Parameters: (count = 1000)
+
+# Run progress: 50.00% complete, ETA 00:00:10
+# Fork: 1 of 1
+# Warmup Iteration   1: 918.230 us/op
+# Warmup Iteration   2: 833.510 us/op
+# Warmup Iteration   3: 832.327 us/op
+# Warmup Iteration   4: 831.734 us/op
+# Warmup Iteration   5: 831.627 us/op
+Iteration   1: 832.303 us/op
+Iteration   2: 829.874 us/op
+Iteration   3: 830.786 us/op
+Iteration   4: 831.817 us/op
+Iteration   5: 831.835 us/op
+
+
+Result "io.github.jprochazk.irc.Benchmarks.testTwitch4J":
+  831.323 ±(99.9%) 3.779 us/op [Average]
+  (min, avg, max) = (829.874, 831.323, 832.303), stdev = 0.981
+  CI (99.9%): [827.543, 835.102] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:00:20
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                (count)  Mode  Cnt    Score   Error  Units
+Benchmarks.testTwirk        1000  avgt    5    2.345 ± 0.008  ms/op
+Benchmarks.testTwitch4J     1000  avgt    5  831.323 ± 3.779  us/op
+
+Benchmark result is saved to /Users/[redacted]/Code/GitHub/twitch-irc-benchmarks/jvm/build/results/jmh/results.txt
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.3/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 24s
+5 actionable tasks: 5 executed

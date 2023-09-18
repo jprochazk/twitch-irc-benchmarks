@@ -1,0 +1,4 @@
+dank-twitch-irc: 6.131 ms/iter (85 samples)
+irc-message parse: 4.295 ms/iter (93 samples)
+deno/twitch-irc: 6.295 ms/iter (91 samples)
+twurple: 7.651 ms/iter (85 samples)

@@ -1,0 +1,53 @@
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+twitch + simd/data.txt (whitelist)
+                        time:   [277.61 µs 277.75 µs 277.91 µs]
+                        change: [-0.3853% -0.0151% +0.4341%] (p = 0.95 > 0.05)
+                        No change in performance detected.
+Found 15 outliers among 100 measurements (15.00%)
+  4 (4.00%) high mild
+  11 (11.00%) high severe
+
+twitch + simd/data.txt (no whitelist)
+                        time:   [283.98 µs 284.23 µs 284.53 µs]
+                        change: [-0.2723% +0.1157% +0.5227%] (p = 0.64 > 0.05)
+                        No change in performance detected.
+Found 16 outliers among 100 measurements (16.00%)
+  2 (2.00%) low mild
+  4 (4.00%) high mild
+  10 (10.00%) high severe
+
+twitch/data.txt (whitelist)
+                        time:   [417.37 µs 417.59 µs 417.84 µs]
+                        change: [-0.2803% +0.1016% +0.4920%] (p = 0.67 > 0.05)
+                        No change in performance detected.
+Found 15 outliers among 100 measurements (15.00%)
+  1 (1.00%) low mild
+  8 (8.00%) high mild
+  6 (6.00%) high severe
+
+twitch/data.txt (no whitelist)
+                        time:   [474.01 µs 474.36 µs 474.75 µs]
+                        change: [-0.2294% +0.1132% +0.4834%] (p = 0.58 > 0.05)
+                        No change in performance detected.
+Found 13 outliers among 100 measurements (13.00%)
+  3 (3.00%) high mild
+  10 (10.00%) high severe
+
+twitch_irc/data.txt     time:   [2.6296 ms 2.6317 ms 2.6341 ms]
+                        change: [+0.1357% +0.2363% +0.3491%] (p = 0.00 < 0.05)
+                        Change within noise threshold.
+Found 11 outliers among 100 measurements (11.00%)
+  4 (4.00%) high mild
+  7 (7.00%) high severe
+
+irc_rust/data.txt       time:   [1.3285 ms 1.3295 ms 1.3305 ms]
+                        change: [-0.6517% -0.2663% +0.1316%] (p = 0.19 > 0.05)
+                        No change in performance detected.
+Found 6 outliers among 100 measurements (6.00%)
+  2 (2.00%) high mild
+  4 (4.00%) high severe
+
