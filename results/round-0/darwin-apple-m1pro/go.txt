@@ -1,0 +1,8 @@
+goos: darwin
+goarch: arm64
+pkg: jgbench
+BenchmarkParse/justgrep-8         	     600	   1848703 ns/op
+BenchmarkParse/go-twitch-irc-8    	     236	   5079605 ns/op
+BenchmarkParse/go-twitch-irc-parser-8         	    1719	    702256 ns/op
+PASS
+ok  	jgbench	4.551s
