@@ -76,6 +76,14 @@ JVM benchmarks use [Java Microbenchmark Harness (JMH)](https://openjdk.org/proje
 $ cd jvm && ./gradlew jmh
 ```
 
+### Elixir
+
+[Install Elixir](https://elixir-lang.org/install.html)
+
+```
+$ cd elixir && mix deps.get && mix test
+```
+
 ## Results
 
 ### x86

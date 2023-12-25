@@ -16,4 +16,7 @@ cd go && go test -bench=. >> ../output/go.txt && cd ..
 echo "\nRunning Node.js..."
 cd node && npm i && node bench.js >> ../output/node.txt && cd ..
 
+echo "\nRunning Elixir.."
+cd elixir && mix deps.get && mix test
+
 # TODO: iterate through result files and parse them into a round summary
